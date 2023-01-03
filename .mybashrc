@@ -1,0 +1,14 @@
+# !/usr/bin/bash
+
+# ~/.bashrc から読み込まれるファイル
+
+# peco の bash 用 script 読み込み(Ctrl + r でコマンド履歴参照)
+. $HOME/.scripts/init-bash-peco-select-history.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+. "$HOME/.cargo/env"
+
+# Enable rbenv for ruby
+eval "$(~/.rbenv/bin/rbenv init - bash)"
