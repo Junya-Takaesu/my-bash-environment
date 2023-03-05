@@ -24,7 +24,7 @@ gpd=0
 col=1
 
 help() {
-    cat << EOF
+  cat <<EOF
   ${0##*/} options:
    -a  all
    -A  almost all
@@ -57,7 +57,7 @@ help() {
 
     * not used in ls
 EOF
-    exit
+  exit
 }
 
 [[ "$*" =~ --help ]] && help
@@ -66,43 +66,59 @@ exa_opts=()
 
 while getopts ':aAtuUSI:rkhnsXL:MNg1lFGRdDiTx@' arg; do
   case $arg in
-    a) (( dot == 1 )) && exa_opts+=(-a) || exa_opts+=(-a -a) ;;
-    A) exa_opts+=(-a) ;;
-    t) exa_opts+=(-s modified); ((++rev)) ;;
-    u) exa_opts+=(-us accessed); ((++rev)) ;;
-    U) exa_opts+=(-Us created); ((++rev)) ;;
-    S) exa_opts+=(-s size); ((++rev)) ;;
-    I) exa_opts+=(--ignore-glob="${OPTARG}") ;;
-    r) ((++rev)) ;;
-    k) ((--hru)) ;;
-    h) ((++hru)) ;;
-    n) exa_opts+=(--git-ignore) ;;
-    s) exa_opts+=(-S) ;;
-    X) exa_opts+=(-s extension) ;;
-    L) exa_opts+=(--level="${OPTARG}") ;;
-    M) ((++gpd)) ;;
-    N) ((++nco)) ;;
-    g) ((++git)) ;;
-    1|l|F|G|R|d|D|i|T|x|@) exa_opts+=(-"$arg") ;;
-    :) printf "%s: -%s switch requires a value\n" "${0##*/}" "${OPTARG}" >&2; exit 1
-       ;;
-    *) printf "Error: %s\n       --help for help\n" "${0##*/}" >&2; exit 1
-       ;;
+  a) ((dot == 1)) && exa_opts+=(-a) || exa_opts+=(-a -a) ;;
+  A) exa_opts+=(-a) ;;
+  t)
+    exa_opts+=(-s modified)
+    ((++rev))
+    ;;
+  u)
+    exa_opts+=(-us accessed)
+    ((++rev))
+    ;;
+  U)
+    exa_opts+=(-Us created)
+    ((++rev))
+    ;;
+  S)
+    exa_opts+=(-s size)
+    ((++rev))
+    ;;
+  I) exa_opts+=(--ignore-glob="${OPTARG}") ;;
+  r) ((++rev)) ;;
+  k) ((--hru)) ;;
+  h) ((++hru)) ;;
+  n) exa_opts+=(--git-ignore) ;;
+  s) exa_opts+=(-S) ;;
+  X) exa_opts+=(-s extension) ;;
+  L) exa_opts+=(--level="${OPTARG}") ;;
+  M) ((++gpd)) ;;
+  N) ((++nco)) ;;
+  g) ((++git)) ;;
+  1 | l | F | G | R | d | D | i | T | x | @) exa_opts+=(-"$arg") ;;
+  :)
+    printf "%s: -%s switch requires a value\n" "${0##*/}" "${OPTARG}" >&2
+    exit 1
+    ;;
+  *)
+    printf "Error: %s\n       --help for help\n" "${0##*/}" >&2
+    exit 1
+    ;;
   esac
 done
 
 shift "$((OPTIND - 1))"
 
-(( rev == 1 )) && exa_opts+=(-r)
-(( hru <= 0 )) && exa_opts+=(-B)
-(( fgp == 0 )) && exa_opts+=(-g)
-(( meb == 0 )) && exa_opts+=(-b)
-(( lnk == 0 )) && exa_opts+=(-H)
-(( col == 1 )) && exa_opts+=(--color=always) || exa_opts+=(--color=auto)
-(( nco == 1 )) && exa_opts+=(--color=never)
-(( gpd >= 1 )) && exa_opts+=(--group-directories-first)
-(( ico == 1 )) && exa_opts+=(--icons)
-(( git == 1 )) && \
+((rev == 1)) && exa_opts+=(-r)
+((hru <= 0)) && exa_opts+=(-B)
+((fgp == 0)) && exa_opts+=(-g)
+((meb == 0)) && exa_opts+=(-b)
+((lnk == 0)) && exa_opts+=(-H)
+((col == 1)) && exa_opts+=(--color=always) || exa_opts+=(--color=auto)
+((nco == 1)) && exa_opts+=(--color=never)
+((gpd >= 1)) && exa_opts+=(--group-directories-first)
+((ico == 1)) && exa_opts+=(--icons)
+((git == 1)) &&
   [[ $(git -C "${*:-.}" rev-parse --is-inside-work-tree) == true ]] 2>/dev/null && exa_opts+=(--git)
 
 # ここが、exa のコマンド実行箇所
