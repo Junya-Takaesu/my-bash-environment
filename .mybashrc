@@ -14,3 +14,5 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(~/.rbenv/bin/rbenv init - bash)"
 # Github command completion
 eval "$(gh completion -s bash)"
+# Enable starship prompt 2022-10-29
+eval "$(starship init bash)"
