@@ -3,16 +3,17 @@
 # ~/.bashrc から読み込まれるファイル
 
 # peco の bash 用 script 読み込み(Ctrl + r でコマンド履歴参照)
-. $HOME/.scripts/init-bash-peco-select-history.sh
+. $HOME/my-bash-environment/init-bash-peco-select-history.sh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-. "$HOME/.cargo/env"
+
+[ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 # Enable rbenv for ruby
-eval "$(~/.rbenv/bin/rbenv init - bash)"
+[ -s ~/.rbenv/bin/rbenv ] && eval "$(~/.rbenv/bin/rbenv init - bash)"
 # Github command completion
-eval "$(gh completion -s bash)"
+[ -x "$(command -v gh)" ] && eval "$(gh completion -s bash)"
 # Enable starship prompt 2022-10-29
-eval "$(starship init bash)"
+[ -x "$(command -v starship)" ] && eval "$(starship init bash)"
