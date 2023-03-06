@@ -31,3 +31,5 @@ fi
     - interact with github services.
 - starship
     - simple yet elegant pretty command prompt
+- cargo
+    - rust package manager
