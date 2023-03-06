@@ -1,5 +1,3 @@
-#!/usr/local/bin/bash
-
 # 以下の内容を、.bashrc か .bash_profile に貼り付ける
 # # peco の bash 用 script 読み込み(Ctrl + r でコマンド履歴参照)
 # . $HOME/init-bash-peco-select-history.sh
