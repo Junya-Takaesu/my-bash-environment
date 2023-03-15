@@ -8,7 +8,8 @@ So, here is the steps to use this repository to set up bash environment.
 1. Install the softwares/tools listed below using whatever the methods requried to install each one.
 1. Source the `.mybashrc` in the .bashrc file in the $HOME directory.
 
-Example of sourcing the `.mybashrc`: 
+Example of sourcing the `.mybashrc`:
+
 ```bash
 # My custom bashrc.
 # Commands to load is written this file.
@@ -17,19 +18,19 @@ if [ -f ~/.scripts/.mybashrc ]; then
 fi
 ```
 
-
 ## Tools
+
 - exa
-    - list in pretty format
+  - list in pretty format
 - nvm
-    - node version manager
+  - node version manager
 - peco
-    - filtering tool. powerful when used with history command. incrementaly search command in command history.
+  - filtering tool. powerful when used with history command. incrementaly search command in command history.
 - rbenv
-    - ruby version manager
+  - ruby version manager
 - github command
-    - interact with github services.
+  - interact with github services.
 - starship
-    - simple yet elegant pretty command prompt
+  - simple yet elegant pretty command prompt
 - cargo
-    - rust package manager
+  - rust package manager
