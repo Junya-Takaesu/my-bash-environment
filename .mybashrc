@@ -22,3 +22,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -x "$(command -v gh)" ] && eval "$(gh completion -s bash)"
 # Enable starship prompt 2022-10-29
 [ -x "$(command -v starship)" ] && eval "$(starship init bash)"
+# Enable aws cli command completion
+[ -x "$(command -v aws_completer)" ] && eval "$(complete -C '/usr/local/bin/aws_completer' aws)"
