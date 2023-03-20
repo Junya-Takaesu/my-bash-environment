@@ -13,6 +13,7 @@ Example of sourcing the `.mybashrc`:
 ```bash
 # My custom bashrc.
 # Commands to load is written this file.
+# So, this is the place where every setups happen.
 if [ -f ~/.scripts/.mybashrc ]; then
     . ~/.scripts/.mybashrc
 fi

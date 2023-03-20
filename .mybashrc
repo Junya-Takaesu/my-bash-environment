@@ -1,26 +1,19 @@
-# ~/.bashrc から読み込まれるファイル
+#-------------------------------------------------
+# Load this '.mybashrc' from the real '~/.bashrc'
+#-------------------------------------------------
 
-DIR_NAME_MY_BASH_ENV=my-bash-environment
+DIR_NAME_MY_BASH_ENV=$HOME/my-bash-environment
 
-# 環境固有のスクリプト実行(git 管理外)
-# .custom-env フォルダ配下にスクリプトを配置したら、読み込まれるが、git では管理されない
-. <(cat $HOME/$DIR_NAME_MY_BASH_ENV/.custom-env/*)
+# Load scripts and configs unique to this machine (git ignored)
+. <(cat $DIR_NAME_MY_BASH_ENV/.custom-env/*)
 
-export NVM_DIR="$HOME/.nvm"
-
-# peco の bash 用 script 読み込み(Ctrl + r でコマンド履歴参照)
-[ -x "$(command -v peco)" ] && . $HOME/$DIR_NAME_MY_BASH_ENV/init-bash-peco-select-history.sh
-
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-[ -s "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-
-# Enable rbenv for ruby
-[ -s ~/.rbenv/bin/rbenv ] && eval "$(~/.rbenv/bin/rbenv init - bash)"
-# Github command completion
-[ -x "$(command -v gh)" ] && eval "$(gh completion -s bash)"
-# Enable starship prompt 2022-10-29
-[ -x "$(command -v starship)" ] && eval "$(starship init bash)"
-# Enable aws cli command completion
-[ -x "$(command -v aws_completer)" ] && complete -C aws_completer aws
+# Load each setup scripts
+. $DIR_NAME_MY_BASH_ENV/peco/setup.sh
+. $DIR_NAME_MY_BASH_ENV/nvm/setup.sh
+. $DIR_NAME_MY_BASH_ENV/cargo/setup.sh
+. $DIR_NAME_MY_BASH_ENV/rbenv/setup.sh
+. $DIR_NAME_MY_BASH_ENV/gh/setup.sh
+. $DIR_NAME_MY_BASH_ENV/starship/setup.sh
+. $DIR_NAME_MY_BASH_ENV/aws/setup.sh
+. $DIR_NAME_MY_BASH_ENV/windows/setup.sh
+. $DIR_NAME_MY_BASH_ENV/exa/setup.sh
