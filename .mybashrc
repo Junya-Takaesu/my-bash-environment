@@ -8,6 +8,7 @@ DIR_NAME_MY_BASH_ENV=$HOME/my-bash-environment
 . <(cat $DIR_NAME_MY_BASH_ENV/.custom-env/*)
 
 # Load each setup scripts
+. $DIR_NAME_MY_BASH_ENV/misc/setup.sh
 . $DIR_NAME_MY_BASH_ENV/peco/setup.sh
 . $DIR_NAME_MY_BASH_ENV/nvm/setup.sh
 . $DIR_NAME_MY_BASH_ENV/cargo/setup.sh
