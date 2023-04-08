@@ -18,4 +18,4 @@ DIR_NAME_MY_BASH_ENV=$HOME/my-bash-environment
 . $DIR_NAME_MY_BASH_ENV/aws/setup.sh
 . $DIR_NAME_MY_BASH_ENV/windows/setup.sh
 . $DIR_NAME_MY_BASH_ENV/exa/setup.sh
-. $DIR_NAME_MY_BASH_ENV/welcome/welcome.sh
+. $DIR_NAME_MY_BASH_ENV/welcome/setup.sh
