@@ -1,0 +1,15 @@
+[container]
+disabled = true
+
+[character]
+error_symbol = '[✗](bold red)'
+
+[git_status]
+stashed = '📦'
+
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = ' '
+style = 'bold dimmed green'
+format = 'via $symbol [${ram} ${ram_pct} | ${swap} ${swap_pct}]($style) '
