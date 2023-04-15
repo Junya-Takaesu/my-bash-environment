@@ -7,7 +7,7 @@
 # Don't list implied . and .. by default with -a
 dot=0
 # Show human readable file sizes by default
-hru=1
+hru=0
 # Show file sizes in binary units (1KiB=1024 bytes) as opposed to decimal (1KB=1000 bytes)
 meb=1
 # Don't show group column
