@@ -2,7 +2,7 @@
 # Load this '.mybashrc' from the real '~/.bashrc'
 #-------------------------------------------------
 
-DIR_NAME_MY_BASH_ENV=$HOME/my-bash-environment
+DIR_NAME_MY_BASH_ENV=$(dirname ${BASH_SOURCE[0]})
 
 # Load scripts and configs unique to this machine (git ignored)
 . <(cat $DIR_NAME_MY_BASH_ENV/.custom-env/*)
