@@ -1,45 +1,19 @@
-# My Bash Enviornment
+# My Bash Environment
 
-My bash scripts won't work until `Tools I Use` installed on the system.
+## How to use
 
-So, here is the steps to use this repository to set up bash environment.
+1. Just clone this repository under $HOME direcotry.
+1. Source the custom .bashrc called ".mybashrc" as illustrated undert the header "How to "source" My Bash Environment."
+1. Customize it by modifying this repository.
+   - Each directory is grouped by a command/program/tool/category.
+   - Make new directories to extend functionality as you go.
 
-1. Clone this repository to somewhere under $HOME directory.
-1. Install the softwares/tools listed under the section of `Tools I Use` using whatever the methods requried to install each one.
-1. Source the `.mybashrc` in the .bashrc file in the $HOME directory.
-
-Example of sourcing the `.mybashrc`:
+## How to "source" My Bash Environment
 
 ```bash
 # My custom bashrc.
-# Commands to load is written this file.
-# So, this is the place where every setups happen.
-if [ -f ~/.scripts/.mybashrc ]; then
-    . ~/.scripts/.mybashrc
+# Scripts to be loaded are written this file.
+if [ -f ~/my-bash-environment/.mybashrc ]; then
+    . ~/my-bash-environment/.mybashrc
 fi
 ```
-
-So, basically .mybashrc has to be edited to configure things like sourcing cli programs.
-
-## Tools I Use
-
-- exa
-  - list in pretty format
-- nvm
-  - node version manager
-- peco
-  - filtering tool. powerful when used with history command. incrementaly search command in command history.
-- rbenv
-  - ruby version manager
-- github command
-  - interact with github services.
-- starship
-  - simple yet elegant pretty command prompt
-- cargo
-  - rust package manager
-- aws cli
-
-## Customize things unique to the machine
-
-.custom-env is empty folder and files inside are git-ignored.
-Any scripts or configurations that are unique to the machine should be saved here.
