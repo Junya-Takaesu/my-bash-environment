@@ -17,3 +17,8 @@ if [ -f ~/my-bash-environment/.mybashrc ]; then
     . ~/my-bash-environment/.mybashrc
 fi
 ```
+
+## .custom-env directory is gitignored
+
+Put any script files specific to a certain machine under .custom-env directory.
+For example, some scripts are unique to Mac, or other scripts are unique to Winsows.
