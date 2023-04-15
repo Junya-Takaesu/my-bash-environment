@@ -1,3 +1,20 @@
+command_timeout = 3000
+add_newline = true
+continuation_prompt = "▷ "
+
+[aws]
+force_display=true
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = 'bold yellow'
+symbol = 'aws '
+expiration_symbol = 'X'
+
+[aws.region_aliases]
+ap-northeast-1 = '東京'
+
+[directory]
+truncation_length = 10
+
 [container]
 disabled = true
 
