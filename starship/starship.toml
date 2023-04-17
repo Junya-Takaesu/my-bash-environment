@@ -22,7 +22,7 @@ disabled = true
 error_symbol = '[✗](bold red)'
 
 [git_status]
-stashed = '📦'
+stashed = '📦 '
 
 [memory_usage]
 disabled = false
