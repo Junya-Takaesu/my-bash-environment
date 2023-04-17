@@ -17,4 +17,5 @@ DIR_NAME_MY_BASH_ENV=$(dirname ${BASH_SOURCE[0]})
 . $DIR_NAME_MY_BASH_ENV/windows/setup.sh
 . $DIR_NAME_MY_BASH_ENV/mac/setup.sh
 . $DIR_NAME_MY_BASH_ENV/exa/setup.sh
+. $DIR_NAME_MY_BASH_ENV/direnv/setup.sh
 . $DIR_NAME_MY_BASH_ENV/welcome/setup.sh
