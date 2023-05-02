@@ -41,9 +41,17 @@ display_welcome_msg() {
 BASH
 ENV
 "
+
+    yellow_highlighted='\033[7m\033[1;33m'
+    end_highlighted='\033[0m'
+
     echo -e "Welcome $USER...\n"
-    echo -e "\e[4m\e[37;44m\"My Bash Environment\"'s location on this machine:\e[0m $DIR_NAME_MY_BASH_ENV"
-    echo -e "\e[4m\e[37;44mView this repository on GitHub:\e[0m https://github.com/Junya-Takaesu/my-bash-environment"
+    echo -e "\t${yellow_highlighted} My Bash Environment's location on this machine ${end_highlighted}"
+    echo -e "\t\t$DIR_NAME_MY_BASH_ENV"
+    echo -e "\n"
+    echo -e "\t${yellow_highlighted} View this repository on GitHub ${end_highlighted}"
+    echo -e "\t\thttps://github.com/Junya-Takaesu/my-bash-environment"
+    echo -e "\n"
 }
 
 [ -x "$(command -v figlet)" ] && display_welcome_msg
