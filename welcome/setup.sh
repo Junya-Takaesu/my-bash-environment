@@ -1,4 +1,4 @@
-# figlet command somethink like below when you login to the terminal
+# "figlet" command shows a message like below when you login to the terminal.
 
 #                     ___       ___
 #                    /\__\     |\__\
