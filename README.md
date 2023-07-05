@@ -4,9 +4,7 @@
 
 1. Just clone this repository under $HOME direcotry.
 1. Source the custom .bashrc called ".mybashrc" as illustrated undert the header "How to "source" My Bash Environment."
-1. Customize it by modifying this repository.
-   - Each directory is grouped by a command/program/tool/category.
-   - Make new directories to extend functionality as you go.
+1. Inside the `sources` directory, put directories which must contain `setup.sh` as this file is going to be loaded. See other setup.sh files for reference when you write new ones.
 
 ## How to "source" My Bash Environment
 
