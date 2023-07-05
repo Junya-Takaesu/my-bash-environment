@@ -18,7 +18,7 @@ if [ -f ~/my-bash-environment/.mybashrc ]; then
 fi
 ```
 
-## .custom-env directory is gitignored
+## `sources/custom-hooks/.hooks/` directory is gitignored
 
-Put any script files specific to a certain machine under .custom-env directory.
+Put any script files specific to a certain machine under `sources/custom-hooks/.hooks/` directory.
 For example, some scripts are unique to Mac, or other scripts are unique to Winsows.
