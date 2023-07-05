@@ -37,8 +37,7 @@
 WELCOME_DIRECTORY=$DIR_FOR_SRC_SCRIPTS/welcome
 
 display_welcome_msg() {
-    ACCUMULATED_OUTPUT+=$(figlet -d $WELCOME_DIRECTORY/figlet-fonts/ -f isometric1 -kctn "
-MY
+    ACCUMULATED_OUTPUT+=$(figlet -d $WELCOME_DIRECTORY/figlet-fonts/ -f isometric1 -kc "MY
 BASH
 ENV
 ")

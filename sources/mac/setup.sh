@@ -4,4 +4,4 @@
 
 alias start="open"
 
-ACCUMULATED_OUTPUT+=("🍎 You are using MacOS")
+ACCUMULATED_OUTPUT+=("🍎 You are using MacOS\n")
