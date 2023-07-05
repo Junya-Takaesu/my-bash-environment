@@ -2,23 +2,23 @@
 # Load this '.mybashrc' from the real '~/.bashrc'
 #-------------------------------------------------
 
-DIR_NAME_MY_BASH_ENV=$(dirname ${BASH_SOURCE[0]})
+DIR_FOR_SRC_SCRIPTS=$(dirname ${BASH_SOURCE[0]})/sources
+
+ACCUMULATED_OUTPUT=()
 
 # Load each setup scripts
-. $DIR_NAME_MY_BASH_ENV/custom-env/setup.sh
-. $DIR_NAME_MY_BASH_ENV/misc/setup.sh
-. $DIR_NAME_MY_BASH_ENV/peco/setup.sh
-. $DIR_NAME_MY_BASH_ENV/nvm/setup.sh
-. $DIR_NAME_MY_BASH_ENV/cargo/setup.sh
-. $DIR_NAME_MY_BASH_ENV/rbenv/setup.sh
-. $DIR_NAME_MY_BASH_ENV/gh/setup.sh
-. $DIR_NAME_MY_BASH_ENV/starship/setup.sh
-. $DIR_NAME_MY_BASH_ENV/aws/setup.sh
-. $DIR_NAME_MY_BASH_ENV/windows/setup.sh
-. $DIR_NAME_MY_BASH_ENV/mac/setup.sh
-. $DIR_NAME_MY_BASH_ENV/exa/setup.sh
-. $DIR_NAME_MY_BASH_ENV/direnv/setup.sh
-. $DIR_NAME_MY_BASH_ENV/kubectl/setup.sh
-. $DIR_NAME_MY_BASH_ENV/fzf/setup.sh
-. $DIR_NAME_MY_BASH_ENV/fuck/setup.sh
-. $DIR_NAME_MY_BASH_ENV/welcome/setup.sh
+for setup_directory in "$DIR_FOR_SRC_SCRIPTS"/*; do
+
+    setup_script="$setup_directory"/setup.sh
+
+    if [ -f $setup_script ]; then
+        echo "✨ Script found ... $setup_script"
+        source $setup_script
+    fi
+
+done
+
+# Display accumulated output
+for output in "${ACCUMULATED_OUTPUT[@]}"; do
+    echo -e "$output"
+done

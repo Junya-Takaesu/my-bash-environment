@@ -14,7 +14,7 @@
 # My custom bashrc.
 # Scripts to be loaded are written this file.
 if [ -f ~/my-bash-environment/.mybashrc ]; then
-    . ~/my-bash-environment/.mybashrc
+    source ~/my-bash-environment/.mybashrc
 fi
 ```
 

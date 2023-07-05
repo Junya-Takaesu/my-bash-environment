@@ -1,0 +1,39 @@
+command_timeout = 3000
+add_newline = true
+continuation_prompt = "▷ "
+
+[aws]
+force_display = true
+format = '[$symbol($profile )(\($region\) )]($style)'
+style = 'bold red'
+symbol = 'aws '
+expiration_symbol = 'X'
+
+[aws.region_aliases]
+# ap-northeast-1 = '東京'
+
+[directory]
+truncation_length = 10
+
+[container]
+disabled = true
+
+[character]
+error_symbol = '[✗](bold red)'
+
+[git_status]
+stashed = '📦 '
+
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = '💽'
+style = 'bold dimmed green'
+format = '$symbol [${ram} ${ram_pct} | ${swap} ${swap_pct}]($style) '
+
+[time]
+disabled = false
+format = '[${time}]($style) '
+time_format = '%y/%m/%d %H:%M:%S'
+utc_time_offset = '+9'
+style = "bold white"
