@@ -42,14 +42,23 @@ BASH
 ENV
 ")
 
-    yellow_highlighted='\033[7m\033[1;33m'
-    end_highlighted='\033[0m'
+    highlighted_start_yellow='\033[7m\033[1;33m'
+    highlighted_end='\033[0m'
 
     ACCUMULATED_OUTPUT+=("Welcome $USER...\n")
-    ACCUMULATED_OUTPUT+=("\t${yellow_highlighted} My Bash Environment's location on this machine ${end_highlighted}")
+
+    # Location of my-bash-env
+    ACCUMULATED_OUTPUT+=("\t${highlighted_start_yellow} My Bash Environment's location on this machine ${highlighted_end}")
     ACCUMULATED_OUTPUT+=("\t\t$DIR_FOR_SRC_SCRIPTS")
     ACCUMULATED_OUTPUT+=("\n")
-    ACCUMULATED_OUTPUT+=("\t${yellow_highlighted} View this repository on GitHub ${end_highlighted}")
+
+    # System info
+    ACCUMULATED_OUTPUT+=("\t${highlighted_start_yellow} System Information ${highlighted_end}")
+    ACCUMULATED_OUTPUT+=("\t\t$(uname -a)")
+    ACCUMULATED_OUTPUT+=("\n")
+
+    # Repo URL
+    ACCUMULATED_OUTPUT+=("\t${highlighted_start_yellow} View this repository on GitHub ${highlighted_end}")
     ACCUMULATED_OUTPUT+=("\t\thttps://github.com/Junya-Takaesu/my-bash-environment")
     ACCUMULATED_OUTPUT+=("\n")
 }
