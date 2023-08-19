@@ -2,30 +2,42 @@
 # Load this '.mybashrc' from the real '~/.bashrc'
 #-------------------------------------------------
 
-DIR_FOR_SRC_SCRIPTS=$(dirname ${BASH_SOURCE[0]})/sources
+_load_scripts() {
+    dir_path=$1
+    # Load each setup scripts
+    for setup_directory in "$dir_path"/*; do
 
-ACCUMULATED_OUTPUT=()
+        setup_script="$setup_directory"/setup.sh
 
-script_status_template="%s %s %s"
+        if [ -f $setup_script ]; then
+            source $setup_script
 
-# Load each setup scripts
-for setup_directory in "$DIR_FOR_SRC_SCRIPTS"/*; do
-
-    setup_script="$setup_directory"/setup.sh
-
-    if [ -f $setup_script ]; then
-        source $setup_script
-
-        if [ $? -ne 0 ]; then
-            printf "\033[31m$script_status_template\033[0m\n" "💩" "$setup_script" "...failed to load"
-        else
-            printf "\033[32m$script_status_template\033[0m\n" "✨" "$setup_script" "...loaded successfully"
+            if [ $? -ne 0 ]; then
+                printf "\033[31m$SCRIPT_STATUS_TEMPLATE\033[0m\n" "💩" "$setup_script" "...failed to load"
+            else
+                printf "\033[32m$SCRIPT_STATUS_TEMPLATE\033[0m\n" "✨" "$setup_script" "...loaded successfully"
+            fi
         fi
-    fi
 
-done
+    done
+}
 
-# Display accumulated output
-for output in "${ACCUMULATED_OUTPUT[@]}"; do
-    echo -e "$output"
-done
+main() {
+    ACCUMULATED_OUTPUT=()
+    SCRIPT_STATUS_TEMPLATE="%s %s %s"
+
+    DIR_FOR_SRC_SCRIPTS_HIGH_PRECEDENCE=$(dirname ${BASH_SOURCE[0]})/sources_high_precedence
+    DIR_FOR_SRC_SCRIPTS=$(dirname ${BASH_SOURCE[0]})/sources
+
+    echo -e "\nLoading scripts with high priority..."
+    _load_scripts $DIR_FOR_SRC_SCRIPTS_HIGH_PRECEDENCE
+    echo -e "\nLoading other scripts ..."
+    _load_scripts $DIR_FOR_SRC_SCRIPTS
+
+    # Display accumulated output
+    for output in "${ACCUMULATED_OUTPUT[@]}"; do
+        echo -e "$output"
+    done
+}
+
+main
