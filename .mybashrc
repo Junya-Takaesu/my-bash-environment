@@ -6,14 +6,21 @@ DIR_FOR_SRC_SCRIPTS=$(dirname ${BASH_SOURCE[0]})/sources
 
 ACCUMULATED_OUTPUT=()
 
+script_status_template="%s %s %s"
+
 # Load each setup scripts
 for setup_directory in "$DIR_FOR_SRC_SCRIPTS"/*; do
 
     setup_script="$setup_directory"/setup.sh
 
     if [ -f $setup_script ]; then
-        echo "✨ Script found ... $setup_script"
         source $setup_script
+
+        if [ $? -ne 0 ]; then
+            printf "\033[31m$script_status_template\033[0m\n" "💩" "$setup_script" "...failed to load"
+        else
+            printf "\033[32m$script_status_template\033[0m\n" "✨" "$setup_script" "...loaded successfully"
+        fi
     fi
 
 done
