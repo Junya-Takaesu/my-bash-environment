@@ -37,3 +37,6 @@ format = '[${time}]($style) '
 time_format = '%y/%m/%d %H:%M:%S'
 utc_time_offset = '+9'
 style = "bold white"
+
+[os]
+disabled = false
