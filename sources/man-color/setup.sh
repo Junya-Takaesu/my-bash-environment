@@ -1,3 +1,4 @@
+# Assign escape sequences to environment variables to color texts in man and less command outputs.
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'
