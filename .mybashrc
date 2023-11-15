@@ -26,6 +26,10 @@ main() {
     ACCUMULATED_OUTPUT=()
     SCRIPT_STATUS_TEMPLATE="%s %s %s"
 
+    # BASH_SOURCE is a predifined variable which contains the
+    # current script's location.(It might be relative path. Similar to $0)
+    # See this for more infor:
+    # https://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source
     DIR_FOR_SRC_SCRIPTS_HIGH_PRECEDENCE=$(dirname ${BASH_SOURCE[0]})/sources_high_precedence
     DIR_FOR_SRC_SCRIPTS=$(dirname ${BASH_SOURCE[0]})/sources
 
