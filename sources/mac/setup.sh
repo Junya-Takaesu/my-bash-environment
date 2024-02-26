@@ -3,7 +3,12 @@
 # Brew requires this line to initialize brew's environment variables
 # Old installation of brew miss this.
 # Details here: https://github.com/Homebrew/homebrew-core/issues/125461
-eval $(/usr/local/bin/brew shellenv)
+
+# For old macos
+# eval $(/usr/local/bin/brew shellenv)
+
+# For new macos (=<13.6.4)
+eval $(/opt/homebrew/bin/brew shellenv)
 
 # This is a line that loads brew package of bash-completion@1.
 # [ -f /usr/local/etc/bash_completion ] && source /usr/local/etc/bash_completion
