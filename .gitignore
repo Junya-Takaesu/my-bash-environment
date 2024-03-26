@@ -1,3 +1,4 @@
-sources/custom-hooks/.hooks
+sources/custom-hooks/.hooks/*
+!sources/custom-hooks/.hooks/example.sh
 sources/starship/starship.toml
 secrets.sh
