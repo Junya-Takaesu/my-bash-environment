@@ -1,27 +1,17 @@
+# Enable silent mode.
+export MYBASH_SILENT=1
+
+# Load utility functions which is required for this '.mybashrc'.
+source $(dirname ${BASH_SOURCE[0]})/bash/utils.sh
+
+#-------------------------------------------------
+# Define aliases
+#-------------------------------------------------
+# alias claude='claude --permission-mode plan'
+
 #-------------------------------------------------
 # Load this '.mybashrc' from the real '~/.bashrc'
 #-------------------------------------------------
-
-_load_scripts() {
-    dir_path=$1
-    # Load each setup scripts
-    for setup_directory in "$dir_path"/*; do
-
-        setup_script="$setup_directory"/setup.sh
-
-        if [ -f $setup_script ]; then
-            source $setup_script
-
-            if [ $? -ne 0 ]; then
-                printf "\033[31m$SCRIPT_STATUS_TEMPLATE\033[0m\n" "💩" "$setup_script" "...failed to load"
-            else
-                printf "\033[32m$SCRIPT_STATUS_TEMPLATE\033[0m\n" "✨" "$setup_script" "...loaded successfully"
-            fi
-        fi
-
-    done
-}
-
 main() {
     ACCUMULATED_OUTPUT=()
     SCRIPT_STATUS_TEMPLATE="%s %s %s"
@@ -34,17 +24,18 @@ main() {
     DIR_FOR_SRC_SCRIPTS_HIGH_PRECEDENCE=$(dirname ${BASH_SOURCE[0]})/sources_high_precedence
     DIR_FOR_SRC_SCRIPTS=$(dirname ${BASH_SOURCE[0]})/sources
 
-    echo -e "\nLoading secrets..."
+    _my_echo "\nLoading secrets..."
     source $SECRETS_DEFINITIONS
-    echo -e "\nLoading scripts with high priority..."
+    _my_echo "\nLoading scripts with high priority..."
     _load_scripts $DIR_FOR_SRC_SCRIPTS_HIGH_PRECEDENCE
-    echo -e "\nLoading other scripts ..."
+    _my_echo "\nLoading other scripts ..."
     _load_scripts $DIR_FOR_SRC_SCRIPTS
 
     # Display accumulated output
     for output in "${ACCUMULATED_OUTPUT[@]}"; do
-        echo -e "$output"
+        _my_echo "$output"
     done
+    _my_banner
 }
 
 main
