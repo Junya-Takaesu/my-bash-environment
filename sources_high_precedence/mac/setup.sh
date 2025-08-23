@@ -19,3 +19,5 @@ alias start="open"
 
 # enable brew tab completion
 [ -f $(dirname ${BASH_SOURCE[0]})/brew_completion.sh ] && source $(dirname ${BASH_SOURCE[0]})/brew_completion.sh
+
+source ~/.bashrc
