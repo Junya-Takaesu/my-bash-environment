@@ -5,10 +5,10 @@
 # Fuzzy search cli tool
 # For the case of fzf installed by "brew"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-eval "$(fzf --bash)"
+# eval "$(fzf --bash)" # not sure why this is needed. there is no such option as --bash in fzf --help
 
 # For the case of fzf installed by "apt"
-# [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
+[ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # Set options for fzf command
 export FZF_DEFAULT_OPTS='--height 100% --border'
