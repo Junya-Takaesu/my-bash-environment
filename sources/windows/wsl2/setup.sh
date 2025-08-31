@@ -1,4 +1,5 @@
-# Enable duplicate tabs/panes by telling the bash the current wslpath in Windows path format
+# As of 2025-08-31 this method is valid, for enabling duplicate tabs/panes 
+# by telling the bash the current wslpath in Windows path format
 # Details:
 #   https://learn.microsoft.com/en-us/windows/terminal/tutorials/new-tab-same-directory
-# PROMPT_COMMAND=${PROMPT_COMMAND:+"$PROMPT_COMMAND; "}'printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"'
+PROMPT_COMMAND=${PROMPT_COMMAND:+"$PROMPT_COMMAND; "}'printf "\e]9;9;%s\e\\" "$(wslpath -w "$PWD")"'
